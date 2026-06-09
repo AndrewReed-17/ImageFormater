@@ -135,8 +135,8 @@ def process_image(
         #Computing and writting the checksum file.
         checksum = md5sum(dst_path)
 
-        with open(str(dst_path) + ".md5", "w") as f:
-            f.write(f"{checksum}  {dst_path.name}\n")
+        with open(f"{str(dst_path).rstrip(dst_path.name)}.{dst_path.name}.md5", "w") as f:
+            f.write(f"{checksum} | {dst_path.name}\n")
         f.close()
 
 
